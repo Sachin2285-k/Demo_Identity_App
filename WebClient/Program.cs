@@ -53,6 +53,6 @@ app.UseAuthentication();
 
 app.UseAuthorization();
 
-app.MapRazorPages().RequireAuthorization();
+app.MapRazorPages();
 
 app.Run();

@@ -1,11 +1,13 @@
 using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using System.Net.Http.Headers;
 using System.Text.Json;
 
-namespace MyApp.Namespace
+namespace WebClient.Pages
 {
+    [Authorize]
     public class CallApiModel : PageModel
     {
         public string Json = string.Empty;
@@ -21,7 +23,7 @@ namespace MyApp.Namespace
 
             var parsed = JsonDocument.Parse(content);
 
-            var formatted = JsonSerializer.Serialize(parsed, new JsonSerializerOptions { WriteIndented = true});
+            var formatted = JsonSerializer.Serialize(parsed, new JsonSerializerOptions { WriteIndented = true });
 
             Json = formatted;
         }
